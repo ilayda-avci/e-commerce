@@ -29,7 +29,6 @@ export default function ShopPage() {
     <section className="w-full">
       <div className="max-w-6xl mx-auto w-full px-4 py-10">
         <div className="text-center">
-          <p className="text-sm text-gray-500">Featured Products</p>
           <h1 className="mt-2 text-2xl font-bold text-[#252B42]">
             BESTSELLER PRODUCTS
           </h1>
