@@ -1,9 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 const slides = [
   {
@@ -26,26 +24,24 @@ const slides = [
 
 export default function MainSlider() {
   return (
-    <section className="w-full">
+    <section className="w-full overflow-hidden">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
+        modules={[Autoplay]}
         autoplay={{ delay: 8000, disableOnInteraction: false }}
         className="w-full h-[620px]"
       >
         {slides.map((s, i) => (
           <SwiperSlide key={i}>
-            <div className={`${s.bg} h-full w-full`}>
+            <div className={`${s.bg} w-full h-full`}>
               <div
                 className="
                   max-w-6xl mx-auto h-full px-4
-                  flex flex-col items-center justify-center text-center gap-4
-                  md:flex-row md:text-left md:justify-between
+                  flex flex-col items-center justify-center text-center gap-6
+                  md:flex-row md:justify-between md:text-left
                 "
               >
                 <div className="flex flex-col items-center md:items-start gap-4">
-                  <p className="text-xs tracking-widest text-blue-900 font-semibold">
+                  <p className="text-xs tracking-widest font-semibold text-blue-900">
                     {s.kicker}
                   </p>
 
@@ -61,7 +57,8 @@ export default function MainSlider() {
                     {s.buttonText}
                   </button>
                 </div>
-                <div className="mt-6 md:mt-0 w-full max-w-sm overflow-hidden rounded-2xl">
+
+                <div className="w-full max-w-sm overflow-hidden rounded-2xl">
                   <img
                     src={s.img}
                     alt="slide"
