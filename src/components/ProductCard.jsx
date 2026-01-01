@@ -1,23 +1,24 @@
 export default function ProductCard({ product }) {
   return (
-    <div className="flex flex-col bg-white border rounded-lg overflow-hidden w-full sm:w-[48%] lg:w-[23%]">
-      <div className="w-full h-64 overflow-hidden">
+    <div className="w-full max-w-[260px] flex flex-col items-center text-center">
+      <div className="w-full bg-gray-50 overflow-hidden">
         <img
           src={product.image}
           alt={product.title}
-          className="w-full h-full object-cover"
+          className="w-full aspect-[3/4] object-cover"
+          loading="lazy"
         />
       </div>
 
-      <div className="p-4 flex flex-col gap-2">
-        <h5 className="font-semibold text-[#252B42]">{product.title}</h5>
-        <p className="text-sm text-[#737373]">{product.category}</p>
+      <div className="mt-4">
+        <h3 className="text-sm font-bold text-[#252B42]">{product.title}</h3>
+        <p className="mt-2 text-xs font-bold text-gray-400">
+          {product.category}
+        </p>
 
-        <div className="flex items-center gap-2 font-semibold">
-          {product.oldPrice && (
-            <span className="text-[#bdbdbd] line-through">{product.oldPrice}</span>
-          )}
-          <span className="text-[#23856d]">{product.price}</span>
+        <div className="mt-3 flex items-baseline justify-center gap-2 text-sm">
+          <span className="text-gray-300">{product.oldPrice}</span>
+          <span className="text-green-600 font-bold">{product.price}</span>
         </div>
       </div>
     </div>

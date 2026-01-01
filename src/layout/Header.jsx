@@ -5,6 +5,9 @@ import { Search, ShoppingCart, Menu } from "lucide-react";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  const linkClass = ({ isActive }) =>
+    `text-sm ${isActive ? "font-semibold text-gray-900" : "text-gray-700"}`;
+
   return (
     <header className="border-b bg-white">
       <div className="max-w-6xl mx-auto w-full px-4 h-16 flex items-center justify-between">
@@ -12,11 +15,24 @@ export default function Header() {
           Bandage
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm text-gray-700">
-          <NavLink to="/">Home</NavLink>
-          <a href="#" className="text-gray-700">Product</a>
-          <a href="#" className="text-gray-700">Pricing</a>
-          <a href="#" className="text-gray-700">Contact</a>
+        <nav className="hidden md:flex items-center gap-6">
+          <NavLink to="/" className={linkClass}>
+            Home
+          </NavLink>
+
+          <NavLink to="/shop" className={linkClass}>
+            Shop
+          </NavLink>
+
+          <a href="#" className="text-sm text-gray-700">
+            Product
+          </a>
+          <a href="#" className="text-sm text-gray-700">
+            Pricing
+          </a>
+          <a href="#" className="text-sm text-gray-700">
+            Contact
+          </a>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -48,10 +64,23 @@ export default function Header() {
             onClick={(e) => e.stopPropagation()}
           >
             <nav className="flex flex-col items-center gap-6 text-2xl text-blue-600">
-              <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
-              <a href="#" onClick={() => setOpen(false)}>Product</a>
-              <a href="#" onClick={() => setOpen(false)}>Pricing</a>
-              <a href="#" onClick={() => setOpen(false)}>Contact</a>
+              <NavLink to="/" onClick={() => setOpen(false)}>
+                Home
+              </NavLink>
+
+              <NavLink to="/shop" onClick={() => setOpen(false)}>
+                Shop
+              </NavLink>
+
+              <a href="#" onClick={() => setOpen(false)}>
+                Product
+              </a>
+              <a href="#" onClick={() => setOpen(false)}>
+                Pricing
+              </a>
+              <a href="#" onClick={() => setOpen(false)}>
+                Contact
+              </a>
             </nav>
           </div>
         </div>
