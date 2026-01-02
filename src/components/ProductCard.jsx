@@ -1,26 +1,31 @@
+import { Link } from "react-router-dom";
+
 export default function ProductCard({ product }) {
   return (
-    <div className="w-full max-w-[260px] flex flex-col items-center text-center">
-      <div className="w-full bg-gray-50 overflow-hidden">
+    <Link to={`/product/${product.id}`} className="block">
+      <div className="rounded-xl border border-[#E8E8E8] p-4 hover:shadow-md transition">
         <img
           src={product.image}
-          alt={product.title}
-          className="w-full aspect-[3/4] object-cover"
-          loading="lazy"
+          alt={product.name}
+          className="h-48 w-full rounded-lg object-cover"
         />
-      </div>
 
-      <div className="mt-4">
-        <h3 className="text-sm font-bold text-[#252B42]">{product.title}</h3>
-        <p className="mt-2 text-xs font-bold text-gray-400">
+        <p className="mt-3 font-bold text-[#252B42]">
+          {product.name}
+        </p>
+        <p className="text-sm text-gray-500">
           {product.category}
         </p>
 
-        <div className="mt-3 flex items-baseline justify-center gap-2 text-sm">
-          <span className="text-gray-300">{product.oldPrice}</span>
-          <span className="text-green-600 font-bold">{product.price}</span>
+        <div className="mt-2 flex gap-2 text-sm font-semibold">
+          <span className="text-gray-400 line-through">
+            ${product.oldPrice}
+          </span>
+          <span className="text-green-600">
+            ${product.price}
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
