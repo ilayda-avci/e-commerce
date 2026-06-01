@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
+  const image = product.images?.[0]?.url ?? product.image ?? "";
+
   return (
     <Link to={`/product/${product.id}`} className="block">
       <div className="rounded-xl border border-[#E8E8E8] p-4 hover:shadow-md transition">
         <img
-          src={product.image}
+          src={image}
           alt={product.name}
           className="h-48 w-full rounded-lg object-cover"
         />
